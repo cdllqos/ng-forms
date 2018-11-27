@@ -1,0 +1,17 @@
+{
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "bracketSpacing": true,
+  "arrowParens": "always",
+  "printWidth": 120,
+  "stylelint": {
+    "extends": ["./node_modules/prettier-stylelint/config.js"],
+    "rules": {
+      "indentation": 4,
+      "string-quotes": "single"
+    }
+  }
+}
