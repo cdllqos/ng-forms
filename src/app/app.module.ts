@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LtFormModule } from '../../projects/lt-forms/src/lib/lt-form.module';
+import { LtFormModule } from 'lt-forms';
 
 @NgModule({
   declarations: [AppComponent],

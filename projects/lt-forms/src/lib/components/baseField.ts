@@ -1,13 +1,13 @@
-import { FiledModel } from '../model/filedModel';
 import { Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { FieldModel } from '../model/fieldModel';
 class BaseField {
-  private innerModel: FiledModel;
+  private innerModel: FieldModel;
   @Input()
-  get model(): FiledModel {
+  get model(): FieldModel {
     return this.innerModel;
   }
-  set model(val: FiledModel) {
+  set model(val: FieldModel) {
     if (val) {
       this.innerModel = val;
       this.setCtrl(val);
@@ -16,8 +16,8 @@ class BaseField {
 
   ctrl: FormControl;
 
-  private setCtrl(filedModel: FiledModel) {
-    this.ctrl = new FormControl(filedModel.value, filedModel.validations);
+  private setCtrl(fieldModel: FieldModel) {
+    this.ctrl = new FormControl(fieldModel.value, fieldModel.validations);
   }
 
   get hasValid(): boolean {

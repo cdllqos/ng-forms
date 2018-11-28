@@ -1,15 +1,12 @@
 import { ValidatorFn, AbstractControlOptions } from '@angular/forms';
 
-class FiledModel {
-  constructor() {}
-}
-interface FiledModel {
+interface FieldModel {
   key: string;
   type?: string;
   value?: any;
   validations?: ValidatorFn | ValidatorFn[] | AbstractControlOptions;
 }
-class FiledInstanceModel {
-  model: FiledModel;
+class FieldInstanceModel {
+  model: FieldModel;
 }
-export { FiledModel, FiledInstanceModel };
+export { FieldModel, FieldInstanceModel };

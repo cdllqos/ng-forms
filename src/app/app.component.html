@@ -1,2 +1,3 @@
-<lt-form></lt-form>
+<lt-form #ltForm [ltFields]="fileds" (ltSubmit)="onSubmit($event)"></lt-form>
+<button (click)="ltForm.submit()">提交</button>
 <router-outlet></router-outlet>
