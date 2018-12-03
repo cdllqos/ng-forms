@@ -35,9 +35,7 @@ export class ComponentService {
 
   detachView(componentRef: ComponentRef<any>, viewContainer?: ViewContainerRef) {
     if (!viewContainer) {
-      if (this.appRef.components.indexOf(componentRef) > -1) {
-        this.appRef.detachView(componentRef.hostView);
-      }
+      this.appRef.detachView(componentRef.hostView);
       return;
     }
     const elIndex = viewContainer.indexOf(componentRef.hostView);
