@@ -19,25 +19,34 @@ import { FindFiledByTypeName } from '../../utils/filedsMap';
   styleUrls: ['./form.component.scss'],
 })
 export class FormComponent implements OnInit {
-  @Input() ltFields: Array<FieldModel>;
-  @Output() ltSubmit: EventEmitter<any> = new EventEmitter<any>();
-  @ViewChild('viewContainer', { read: ViewContainerRef }) viewContainer: ViewContainerRef;
-
+  private innerFields: Array<FieldModel>;
   private fieldRefs: Array<ComponentRef<BaseField>> = [];
 
-  constructor(private componentService: ComponentService) {}
-
-  ngOnInit() {
-    this.buildFiledComponents();
+  @Input()
+  get ltFields(): Array<FieldModel> {
+    return this.innerFields;
   }
-
-  private buildFiledComponents() {
-    if (!this.ltFields) {
+  set ltFields(fields: Array<FieldModel>) {
+    if (!fields) {
       console.warn(`please use ltField like this:
       <lt-form [ltFields]="fields"></lt-form>`);
       return;
     }
-    this.ltFields.forEach((filed) => {
+    if (this.fieldRefs.length > 0) {
+      this.fieldRefs.splice(0, this.fieldRefs.length);
+    }
+    this.innerFields = fields;
+    this.buildFiledComponents();
+  }
+  @Output() ltSubmit: EventEmitter<any> = new EventEmitter<any>();
+  @ViewChild('viewContainer', { read: ViewContainerRef }) viewContainer: ViewContainerRef;
+
+  constructor(private componentService: ComponentService) {}
+
+  ngOnInit() {}
+
+  private buildFiledComponents() {
+    this.innerFields.forEach((filed) => {
       const component = FindFiledByTypeName(filed.type);
       const componentRef = this.componentService.attachView<BaseField, FieldInstanceModel>(
         {
