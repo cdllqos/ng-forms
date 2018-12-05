@@ -8,7 +8,27 @@ import { FieldModel } from 'lt-forms';
 })
 export class AppComponent {
   constructor() {}
-  fileds: Array<FieldModel> = [{ key: 'name', type: 'input', value: 1112 }];
+  fileds: Array<FieldModel> = [
+    {
+      key: 'name',
+      type: 'input',
+      value: 12,
+      validations: [
+        {
+          name: 'required',
+          args: null,
+          formatError: () => '请填写此字段',
+        },
+        {
+          name: 'minlength',
+          args: 3,
+          formatError: (error) => {
+            return `请填写至少${error.requiredLength}个字符，当前已填写${error.actualLength}个字符`;
+          },
+        },
+      ],
+    },
+  ];
   onSubmit(e) {
     console.log(e);
   }

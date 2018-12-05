@@ -1,10 +1,10 @@
-import { ValidatorFn, AbstractControlOptions } from '@angular/forms';
+import { ValidationModel } from './validationModel';
 
 interface FieldModel {
   key: string;
   type?: string;
   value?: any;
-  validations?: ValidatorFn | ValidatorFn[] | AbstractControlOptions;
+  validations?: Array<ValidationModel>;
 }
 class FieldInstanceModel {
   model: FieldModel;

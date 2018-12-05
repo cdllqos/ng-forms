@@ -1,1 +1,3 @@
 <input type="text" [formControl]="ctrl">
+<div *ngIf="getError('required')">{{getError('required')}}</div>
+<div *ngIf="getError('minlength')">{{getError('minlength')}}</div>
