@@ -2,6 +2,7 @@ import { ValidationModel } from './validationModel';
 
 interface FieldModel {
   key: string;
+  label?: string;
   type?: string;
   value?: any;
   validations?: Array<ValidationModel>;

@@ -12,6 +12,7 @@ export class AppComponent {
     {
       key: 'name',
       type: 'input',
+      label: '姓名',
       value: 12,
       validations: [
         {

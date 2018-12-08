@@ -53,10 +53,7 @@ export class FormComponent implements OnInit {
           component: component,
           props: {
             model: {
-              key: filed.key,
-              type: filed.type,
-              value: filed.value,
-              validations: filed.validations,
+              ...filed,
             },
           },
         },

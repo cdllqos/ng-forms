@@ -1,0 +1,9 @@
+:host {
+  display: block;
+}
+
+.invalid {
+  .mdl-textfield__error {
+    visibility: visible;
+  }
+}

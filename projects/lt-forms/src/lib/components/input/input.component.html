@@ -1,3 +1,8 @@
-<input type="text" [formControl]="ctrl">
-<div *ngIf="getError('required')">{{getError('required')}}</div>
-<div *ngIf="getError('minlength')">{{getError('minlength')}}</div>
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" [class.invalid]="!hasValid">
+  <input class="mdl-textfield__input" type="text" [formControl]="ctrl" [id]="model.key">
+  <label class="mdl-textfield__label" [for]="model.key">
+    {{model.label}}
+  </label>
+  <span *ngIf="getError('required')" class="mdl-textfield__error">{{getError('required')}}</span>
+  <span *ngIf="getError('minlength')" class="mdl-textfield__error">{{getError('minlength')}}</span>
+</div>

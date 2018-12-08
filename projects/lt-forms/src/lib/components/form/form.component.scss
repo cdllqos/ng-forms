@@ -1,0 +1,6 @@
+:host {
+  display: block;
+  --form-tb-padding: 0;
+  --form-lr-padding: 0.8rem;
+  padding: var(--form-tb-padding) var(--form-lr-padding);
+}
