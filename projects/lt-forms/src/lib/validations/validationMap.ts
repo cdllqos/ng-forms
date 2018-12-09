@@ -1,4 +1,5 @@
 import { ValidationModel, FieldValidator, ValidationMap } from '../model/validationModel';
+import * as customValidations from './customValidation';
 import { Validators } from '@angular/forms';
 
 const validations: Array<ValidationMap> = [
@@ -9,6 +10,30 @@ const validations: Array<ValidationMap> = [
   {
     name: 'minlength',
     getValidation: (min) => Validators.minLength(min),
+  },
+  {
+    name: 'maxlength',
+    getValidation: (max) => Validators.maxLength(max),
+  },
+  {
+    name: 'min',
+    getValidation: (min) => Validators.min(min),
+  },
+  {
+    name: 'max',
+    getValidation: (max) => Validators.max(max),
+  },
+  {
+    name: 'email',
+    getValidation: () => Validators.email,
+  },
+  {
+    name: 'pattern',
+    getValidation: (pattern) => Validators.pattern(pattern),
+  },
+  {
+    name: 'phone',
+    getValidation: () => customValidations.phone,
   },
 ];
 const getValidation = (validationModel: ValidationModel) => {

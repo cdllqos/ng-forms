@@ -27,6 +27,12 @@ export class AppComponent {
             return `请填写至少${error.requiredLength}个字符，当前已填写${error.actualLength}个字符`;
           },
         },
+        {
+          name: 'phone',
+          formatError: (error) => {
+            return '请填写一个有效手机号码';
+          },
+        },
       ],
     },
   ];

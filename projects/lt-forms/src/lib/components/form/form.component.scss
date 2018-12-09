@@ -2,5 +2,6 @@
   display: block;
   --form-tb-padding: 0;
   --form-lr-padding: 0.8rem;
+  --error-color: #d50000;
   padding: var(--form-tb-padding) var(--form-lr-padding);
 }
