@@ -7,6 +7,7 @@ import {
   ViewChild,
   Input,
   ComponentRef,
+  ViewEncapsulation,
 } from '@angular/core';
 import { ComponentService } from '../../service/component.service';
 import { FieldInstanceModel, FieldModel } from '../../model/fieldModel';
@@ -17,6 +18,7 @@ import { FindFiledByTypeName } from '../../utils/filedsMap';
   selector: 'lt-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class FormComponent implements OnInit {
   private innerFields: Array<FieldModel>;

@@ -1,0 +1,48 @@
+.flex {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-start {
+  justify-content: flex-start;
+}
+
+.flex-center {
+  justify-content: center;
+}
+
+.flex-end {
+  justify-content: flex-end;
+}
+
+.flex-top {
+  align-items: flex-start;
+}
+
+.flex-middle {
+  align-items: center;
+}
+
+.flex-bottom {
+  align-items: flex-end;
+}
+
+.flex-1 {
+  flex: auto;
+}
+
+@mixin flex-display($display:flex, $direction: row, $wrap:nowrap, $justify-content: flex-start, $align-items: baseline) {
+  display: $display;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
