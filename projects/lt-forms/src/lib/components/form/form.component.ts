@@ -18,7 +18,7 @@ import { FindFiledByTypeName } from '../../utils/filedsMap';
   selector: 'lt-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.ShadowDom,
 })
 export class FormComponent implements OnInit {
   private innerFields: Array<FieldModel>;

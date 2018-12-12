@@ -1,5 +1,20 @@
 @import './flex.scss';
 
 .section {
-  @include flex-display();
+
+  label {
+    display: block;
+  }
+
+  .invalid {
+    span {
+      display: none;
+      color: var(--danger);
+
+      &:first-child {
+        display: block;
+
+      }
+    }
+  }
 }

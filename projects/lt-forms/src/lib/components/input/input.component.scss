@@ -3,20 +3,3 @@
   --field-padding: 20px;
   padding-bottom: var(--field-padding);
 }
-
-.mdl-textfield {
-  padding: var(--field-padding) 0;
-}
-
-.text-field-error {
-  color: var(--error-color);
-  font-size: 12px;
-  margin-top: 3px;
-  display: none;
-}
-
-.invalid {
-  .text-field-error {
-    display: block;
-  }
-}
