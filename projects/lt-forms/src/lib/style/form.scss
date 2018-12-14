@@ -1,9 +1,28 @@
 @import './flex.scss';
+@import './utils.scss';
 
 .section {
+  font-size: px2rem(16px);
 
   label {
     display: block;
+  }
+
+  input {
+    display: block;
+    width: 90%;
+    outline: none;
+    padding: var(--input-tb-padding) var(--input-lr-padding);
+    border: px2rem(1px) solid var(--border-primary);
+    border-radius: px2rem(4px);
+    transition: all .2s ease-in;
+
+    &:active,
+    &:hover,
+    &:focus,
+      {
+      border-color: var(--border-active);
+    }
   }
 
   .invalid {

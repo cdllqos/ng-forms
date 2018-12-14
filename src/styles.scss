@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@media (min-width : 375px) and (max-width : 667px) and (-webkit-min-device-pixel-ratio : 2) {
+  html {
+    font-size: 37.5px;
+  }
+}

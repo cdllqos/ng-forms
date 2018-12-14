@@ -4,7 +4,11 @@
 :host {
   display: block;
   --form-tb-padding: 0;
-  --form-lr-padding: 0.8rem;
+  --form-lr-padding: 14px;
   --danger: #d50000;
+
+  --border-primary: #d9d9d9;
+  --border-active: #40a9ff;
+
   padding: var(--form-tb-padding) var(--form-lr-padding);
 }
