@@ -1,6 +1,6 @@
 import { Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { getValidations } from '../validations/validationMap';
+import { getValidations } from '../validations';
 import { FieldModel, FieldValidator } from '../model';
 class BaseField {
   private innerModel: FieldModel;

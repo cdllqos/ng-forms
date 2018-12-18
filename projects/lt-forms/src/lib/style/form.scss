@@ -1,8 +1,7 @@
 @import './flex.scss';
-@import './utils.scss';
 
 .section {
-  font-size: px2rem(16px);
+  font-size: 4.266667vw;
 
   label {
     display: block;
@@ -10,11 +9,13 @@
 
   input {
     display: block;
+    font-size: 3.733333vw;
     width: 90%;
+    margin: 2.133333vw 0;
     outline: none;
     padding: var(--input-tb-padding) var(--input-lr-padding);
-    border: px2rem(1px) solid var(--border-primary);
-    border-radius: px2rem(4px);
+    border: 1px solid var(--border-primary);
+    border-radius: 1px;
     transition: all .2s ease-in;
 
     &:active,
@@ -27,6 +28,7 @@
 
   .invalid {
     span {
+      font-size: 3.733333vw;
       display: none;
       color: var(--danger);
 
