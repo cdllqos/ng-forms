@@ -26,14 +26,14 @@ class BaseField {
   }
 
   get hasValid(): boolean {
-    if (!this.ctrl) {
+    if (!this.ctrl || !this.ctrl.dirty) {
       return true;
     }
     return this.ctrl.status === 'VALID';
   }
 
   getError(code: string) {
-    if (!this.ctrl || !this.model) {
+    if (!this.ctrl || !this.model || !this.ctrl.dirty) {
       return false;
     }
     const ctrlError = this.ctrl.getError(code);

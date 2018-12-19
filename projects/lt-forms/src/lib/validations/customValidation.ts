@@ -1,5 +1,6 @@
-import { AbstractControl, ValidatorFn, ValidationErrors } from '@angular/forms';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
 const phone = (control: AbstractControl): ValidationErrors => {
+  console.log(control);
   const numberRe = /^[0-9]+.?[0-9]*/;
   if (control.value && control.value.length === 11 && numberRe.test(control.value)) {
     return null;

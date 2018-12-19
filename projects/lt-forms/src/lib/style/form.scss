@@ -31,10 +31,21 @@
       font-size: 3.733333vw;
       display: none;
       color: var(--danger);
+      animation: fadeIn .3s linear;
+
 
       &:first-child {
         display: block;
+      }
+    }
 
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
       }
     }
   }
