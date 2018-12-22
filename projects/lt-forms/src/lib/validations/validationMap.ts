@@ -1,45 +1,21 @@
-import { ValidationModel, FieldValidator, ValidationMap } from '../model/validationModel';
+import { ValidationModel, FieldValidator } from '../model/validationModel';
 import * as customValidations from './customValidation';
 import { Validators } from '@angular/forms';
 
-const validations: Array<ValidationMap> = [
-  {
-    name: 'required',
-    getValidation: () => Validators.required,
-  },
-  {
-    name: 'minlength',
-    getValidation: (min) => Validators.minLength(min),
-  },
-  {
-    name: 'maxlength',
-    getValidation: (max) => Validators.maxLength(max),
-  },
-  {
-    name: 'min',
-    getValidation: (min) => Validators.min(min),
-  },
-  {
-    name: 'max',
-    getValidation: (max) => Validators.max(max),
-  },
-  {
-    name: 'email',
-    getValidation: () => Validators.email,
-  },
-  {
-    name: 'pattern',
-    getValidation: (pattern) => Validators.pattern(pattern),
-  },
-  {
-    name: 'phone',
-    getValidation: () => customValidations.phone,
-  },
-];
+const validations: Map<string, (arg?: any) => FieldValidator> = new Map();
+validations.set('required', () => Validators.required);
+validations.set('minlength', (min: number) => Validators.minLength(min));
+validations.set('maxlength', (max: number) => Validators.maxLength(max));
+validations.set('min', (min: number) => Validators.min(min));
+validations.set('max', (max: number) => Validators.max(max));
+validations.set('email', () => Validators.email);
+validations.set('pattern', (pattern: string | RegExp) => Validators.pattern(pattern));
+validations.set('phone', () => customValidations.phone);
+
 const getValidation = (validationModel: ValidationModel) => {
-  const validation = validations.find((m) => m.name === validationModel.name);
-  if (validation) {
-    return validation.getValidation(validationModel.args);
+  const validator = validations.get(validationModel.name);
+  if (validator) {
+    return validator(validationModel.args);
   }
   return null;
 };

@@ -42,7 +42,7 @@ describe('form Component', () => {
       },
     ];
     fixtrue.detectChanges();
-    const queryResult = formComponentEl.querySelector('lt-input');
+    const queryResult = formComponentEl.shadowRoot.querySelector('lt-input');
     expect(queryResult).not.toBeNull();
   });
 });

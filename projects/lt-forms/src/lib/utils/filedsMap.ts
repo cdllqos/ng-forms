@@ -1,17 +1,14 @@
 import { InputComponent } from '../components/input/input.component';
+import { Type } from '@angular/core';
 
-const filedMap = [
-  {
-    type: 'input',
-    compoent: InputComponent,
-  },
-];
+const fieldMap: Map<string, Type<any>> = new Map();
+fieldMap.set('input', InputComponent);
 
 const FindFiledByTypeName = (typeName: string) => {
-  const selected = filedMap.find((m) => m.type === typeName);
-  if (selected) {
-    return selected.compoent;
+  const selectedComponent = fieldMap.get(typeName);
+  if (selectedComponent) {
+    return selectedComponent;
   }
-  return filedMap[0].compoent;
+  return fieldMap.get('input');
 };
 export { FindFiledByTypeName };
