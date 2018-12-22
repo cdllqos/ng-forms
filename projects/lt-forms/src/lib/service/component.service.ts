@@ -9,7 +9,7 @@ import {
 import { ComponentModel } from '../model/componentModel';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: null,
 })
 export class ComponentService {
   constructor(private appRef: ApplicationRef, private crf: ComponentFactoryResolver, private injector: Injector) {}

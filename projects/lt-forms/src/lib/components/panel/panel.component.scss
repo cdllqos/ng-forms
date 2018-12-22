@@ -1,0 +1,65 @@
+:host {
+  --panel-tb-padding: 2.133333vw;
+  --panel-lr-padding: 2.133333vw;
+  --bg-color: rgba(0, 0, 0, .2);
+  --container-bg-color: #fff;
+}
+
+:host {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.panel-bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--bg-color);
+  z-index: 9;
+}
+
+.panel-content {
+  flex: 1;
+  padding: var(--panel-tb-padding) var(--panel-lr-padding);
+  box-shadow: 0 1px 6px var(--bg-color);
+  background: var(--container-bg-color);
+  z-index: 10;
+}
+
+.slideToTop {
+  animation: slideToTop .3s ease;
+}
+
+.slideToBottom {
+  animation: slideToBottom .3s ease;
+}
+
+@keyframes slideToTop {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideToBottom {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

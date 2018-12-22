@@ -1,0 +1,4 @@
+<div class="panel-bg" *ngIf="showMask" (click)="closePanel()"></div>
+<div class="panel-content" [ngClass]="{'slideToTop':isSlideToTop,'slideToBottom':!isSlideToTop}">
+  <ng-container #viewContainer></ng-container>
+</div>
