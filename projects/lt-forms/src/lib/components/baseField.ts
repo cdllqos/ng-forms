@@ -32,6 +32,13 @@ class BaseField {
     return this.ctrl.status === 'VALID';
   }
 
+  get canSubmit(): boolean {
+    if (!this.ctrl) {
+      return true;
+    }
+    return this.ctrl.status === 'VALID';
+  }
+
   getError(code: string) {
     if (!this.ctrl || !this.model || !this.ctrl.dirty) {
       return false;

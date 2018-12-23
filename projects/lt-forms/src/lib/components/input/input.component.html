@@ -2,7 +2,7 @@
   <label [for]="model.key">
     {{model.label}}
   </label>
-  <input type="text" [formControl]="ctrl" [id]="model.key">
+  <input [type]="type" [formControl]="ctrl" [id]="model.key">
   <div [class.invalid]="!hasValid">
     <span *ngIf="getError('required')" class="text-field-error">{{getError('required')}}</span>
     <span *ngIf="getError('minlength')" class="text-field-error">{{getError('minlength')}}</span>

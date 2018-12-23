@@ -5,6 +5,7 @@
   display: block;
   padding: var(--panel-tb-padding) 0;
   border-bottom: 1px solid var(--border-primary);
+  font-size: 4.266667vw;
 
   &:last-child {
     border-bottom: none;
@@ -22,5 +23,9 @@
 
   .content {
     flex: 18;
+  }
+
+  .end {
+    text-align: right;
   }
 }

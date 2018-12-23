@@ -66,7 +66,7 @@ export class FormComponent implements OnInit {
   }
 
   get hasValid() {
-    return this.fieldRefs.every((field) => field.instance.hasValid === true);
+    return this.fieldRefs.every((field) => field.instance.canSubmit === true);
   }
 
   submit() {

@@ -12,4 +12,14 @@ export class InputComponent extends BaseField implements OnInit {
   }
 
   ngOnInit() {}
+
+  get type() {
+    if (!this.model.options) {
+      return 'text';
+    }
+    if (!this.model.options['type']) {
+      return 'text';
+    }
+    return this.model.options['type'];
+  }
 }

@@ -1,4 +1,5 @@
 @mixin variable {
+  --font-disable: #d9d9d9;
   --form-tb-padding: 0;
   --form-lr-padding: 0;
   --form-control-tb-padding: 1.333333vw;
@@ -14,4 +15,6 @@
   --panel-lr-padding: 2.133333vw;
   --bg-color: rgba(0, 0, 0, .2);
   --container-bg-color: #fff;
+
+  --btn-bg-primary: #fff;
 }

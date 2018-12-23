@@ -7,5 +7,7 @@
     padding: var(--form-control-tb-padding) var(--form-control-lr-padding);
     border: 1px solid var(--border-primary);
     border-radius: 1px;
+    display: flex;
+    justify-content: space-between;
   }
 }

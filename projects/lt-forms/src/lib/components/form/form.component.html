@@ -1,1 +1,4 @@
 <ng-container #viewContainer></ng-container>
+<div class="submit-btn" [class.disabled]="!hasValid" (click)="submit()">
+  提交
+</div>

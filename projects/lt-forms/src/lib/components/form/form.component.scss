@@ -1,10 +1,33 @@
 @import '../../style/normalize.scss';
 @import '../../style/form.scss';
 @import '../../style/variable.scss';
+@import '../../style/font.scss';
 
 :host {
   display: block;
   @include variable;
 
   padding: var(--form-tb-padding) var(--form-lr-padding);
+}
+
+.iconfont {
+  display: inline-flex;
+  align-items: center;
+}
+
+
+.submit-btn {
+  display: block;
+  text-align: center;
+  margin: 4.266667vw 0;
+  padding: var(--form-control-tb-padding) var(--form-control-lr-padding);
+  border: 1px solid var(--border-primary);
+  background: var(--btn-bg-primary);
+  border-radius: 1px;
+  font-size: 4.266667vw;
+  outline: none;
+
+  &.disabled {
+    color: var(--font-disable);
+  }
 }

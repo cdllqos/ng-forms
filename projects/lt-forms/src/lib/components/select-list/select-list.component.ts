@@ -8,6 +8,7 @@ import { ListItemModel } from '../../model/listItem';
 })
 export class SelectListComponent implements OnInit {
   @Input() list: Array<ListItemModel>;
+  @Input() value: string;
   @Output() selectedChange: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() {}

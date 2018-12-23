@@ -1,5 +1,8 @@
 <ng-container *ngFor="let item of list">
   <lt-list-item (selectedChange)="itemChange($event)" [value]="item.value">
     {{item.name}}
+    <ng-template *ngIf="item.value === value" #end>
+      <i class="iconfont lt-selected"></i>
+    </ng-template>
   </lt-list-item>
 </ng-container>
