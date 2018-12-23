@@ -1,0 +1,5 @@
+<ng-container *ngFor="let item of list">
+  <lt-list-item (selectedChange)="itemChange($event)" [value]="item.value">
+    {{item.name}}
+  </lt-list-item>
+</ng-container>

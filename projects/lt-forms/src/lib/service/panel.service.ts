@@ -4,16 +4,14 @@ import { PanelModel } from '../model/panelModel';
 import { PanelComponent } from '../components/panel/panel.component';
 import { Subscription } from 'rxjs';
 
-@Injectable({
-  providedIn: null,
-})
+@Injectable()
 export class PanelService {
   private panelRef: ComponentRef<PanelComponent>;
   private closeSubscription$: Subscription;
 
   constructor(private componentService: ComponentService) {}
 
-  showPanel(option: PanelModel) {
+  showPanel<T>(option: PanelModel<T>): ComponentRef<T> {
     this.panelRef = this.componentService.attachView({
       component: PanelComponent,
       props: {
@@ -25,17 +23,21 @@ export class PanelService {
       this.closePanel();
     });
     const viewContainer = this.panelRef.instance.viewContainer;
-    this.componentService.attachView(
+    const contentRef = this.componentService.attachView(
       {
         component: option.content,
+        props: option.props,
       },
       viewContainer
     );
+    return contentRef;
   }
 
   closePanel() {
     if (this.panelRef) {
       this.componentService.detachView(this.panelRef);
+    }
+    if (this.closeSubscription$) {
       this.closeSubscription$.unsubscribe();
     }
   }

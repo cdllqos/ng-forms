@@ -6,6 +6,7 @@ interface FieldModel {
   type?: string;
   value?: any;
   validations?: Array<ValidationModel>;
+  options?: any;
 }
 class FieldInstanceModel {
   model: FieldModel;

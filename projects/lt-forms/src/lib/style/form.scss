@@ -7,6 +7,7 @@
 
   label {
     display: block;
+    width: 100%;
   }
 
   input {
@@ -15,7 +16,7 @@
     width: 100%;
     margin: 2.133333vw 0;
     outline: none;
-    padding: var(--input-tb-padding) var(--input-lr-padding);
+    padding: var(--form-control-tb-padding) var(--form-control-lr-padding);
     border: 1px solid var(--border-primary);
     border-radius: 1px;
     transition: all .2s ease-in;
@@ -26,6 +27,12 @@
       {
       border-color: var(--border-active);
     }
+  }
+
+  .content {
+    display: block;
+    width: 100%;
+    margin: 2.133333vw 0;
   }
 
   .invalid {

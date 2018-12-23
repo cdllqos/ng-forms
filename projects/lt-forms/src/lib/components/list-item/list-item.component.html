@@ -1,0 +1,11 @@
+<div class="item-container">
+  <div class="start" *ngIf="start">
+    <ng-container [ngTemplateOutlet]="start"></ng-container>
+  </div>
+  <div class="content">
+    <ng-content></ng-content>
+  </div>
+  <div class="end" *ngIf="end">
+    <ng-container [ngTemplateOutlet]="end"></ng-container>
+  </div>
+</div>

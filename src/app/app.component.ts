@@ -35,6 +35,14 @@ export class AppComponent {
         },
       ],
     },
+    {
+      key: 'select',
+      type: 'select',
+      label: '选择器',
+      options: {
+        list: [{ name: '选项1', value: '111' }, { name: '选项2', value: '222' }],
+      },
+    },
   ];
   onSubmit(e) {
     console.log(e);

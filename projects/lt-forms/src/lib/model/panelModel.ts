@@ -1,7 +1,10 @@
 import { Type } from '@angular/core';
 
-export class PanelModel {
+export class PanelModel<T> {
   position?: 'top' | 'bottom' = 'bottom';
-  content?: Type<any>;
+  content?: Type<T>;
   showMask?: boolean = true;
+  props?: {
+    [key: string]: any;
+  };
 }

@@ -1,3 +1,11 @@
-<p (click)="hidePanel()">
-  select works!
-</p>
+<div class="section">
+  <label [for]="model.key">
+    {{model.label}}
+  </label>
+  <div class="content" (click)="showSelection()">
+    <div class="select" *ngIf="!selectedName;else valueTpl">请选择</div>
+    <ng-template #valueTpl>
+      <div class="select">{{selectedName}}</div>
+    </ng-template>
+  </div>
+</div>

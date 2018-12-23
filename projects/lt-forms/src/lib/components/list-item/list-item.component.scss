@@ -1,0 +1,13 @@
+.item-container {
+  display: flex;
+  flex-wrap: nowrap;
+
+  .start,
+  .end {
+    flex: 3;
+  }
+
+  .content {
+    flex: 18;
+  }
+}

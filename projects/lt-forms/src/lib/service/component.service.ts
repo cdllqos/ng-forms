@@ -8,9 +8,7 @@ import {
 } from '@angular/core';
 import { ComponentModel } from '../model/componentModel';
 
-@Injectable({
-  providedIn: null,
-})
+@Injectable()
 export class ComponentService {
   constructor(private appRef: ApplicationRef, private crf: ComponentFactoryResolver, private injector: Injector) {}
 
