@@ -1,3 +1,16 @@
+@import '../../style/variable.scss';
+
+:host {
+  @include variable;
+  display: block;
+  padding: var(--panel-tb-padding) 0;
+  border-bottom: 1px solid var(--border-primary);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
 .item-container {
   display: flex;
   flex-wrap: nowrap;

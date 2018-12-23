@@ -1,11 +1,7 @@
-:host {
-  --panel-tb-padding: 2.133333vw;
-  --panel-lr-padding: 2.133333vw;
-  --bg-color: rgba(0, 0, 0, .2);
-  --container-bg-color: #fff;
-}
+@import '../../style/variable.scss';
 
 :host {
+  @include variable;
   display: flex;
   position: fixed;
   top: 0;

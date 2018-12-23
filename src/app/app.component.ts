@@ -45,6 +45,6 @@ export class AppComponent {
     },
   ];
   onSubmit(e) {
-    console.log(e);
+    console.table(e);
   }
 }
