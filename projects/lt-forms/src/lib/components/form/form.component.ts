@@ -71,7 +71,8 @@ export class FormComponent implements OnInit {
 
   submit() {
     if (!this.hasValid) {
-      this.ltSubmit.emit('error');
+      this.ltSubmit.emit({ error: `can't submit form` });
+      return;
     }
     const result = {};
     this.fieldRefs.forEach((field) => {
