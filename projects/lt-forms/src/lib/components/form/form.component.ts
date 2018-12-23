@@ -71,6 +71,9 @@ export class FormComponent implements OnInit {
 
   submit() {
     if (!this.hasValid) {
+      this.fieldRefs.forEach((field) => {
+        field.instance.ctrl.markAsDirty();
+      });
       this.ltSubmit.emit({ error: `can't submit form` });
       return;
     }
