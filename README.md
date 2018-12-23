@@ -9,3 +9,9 @@ this project is for dynamic create form field
 - support input, select, radio,checkbox ... filed
 
 - support angular original validations
+
+### implemented
+
+- input component
+
+- select component
