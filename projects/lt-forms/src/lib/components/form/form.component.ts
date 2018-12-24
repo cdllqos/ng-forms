@@ -48,14 +48,14 @@ export class FormComponent implements OnInit {
   ngOnInit() {}
 
   private buildFiledComponents() {
-    this.innerFields.forEach((filed) => {
-      const component = FindFiledByTypeName(filed.type);
+    this.innerFields.forEach((field) => {
+      const component = FindFiledByTypeName(field.type);
       const componentRef = this.componentService.attachView<BaseField, FieldInstanceModel>(
         {
           component: component,
           props: {
             model: {
-              ...filed,
+              ...field,
             },
           },
         },
@@ -72,7 +72,9 @@ export class FormComponent implements OnInit {
   submit() {
     if (!this.hasValid) {
       this.fieldRefs.forEach((field) => {
-        field.instance.ctrl.markAsDirty();
+        if (!field.instance.ctrl.dirty) {
+          field.instance.ctrl.markAsDirty();
+        }
       });
       this.ltSubmit.emit({ error: `can't submit form` });
       return;

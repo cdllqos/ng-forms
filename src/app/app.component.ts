@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { FieldModel } from 'lt-forms';
+import { FieldModel, LtValidations } from 'lt-forms';
 @Component({
   selector: 'lt-root',
   templateUrl: './app.component.html',
@@ -15,7 +15,7 @@ export class AppComponent {
       label: '文本',
       validations: [
         {
-          name: 'required',
+          name: LtValidations.Required,
           args: null,
           formatError: () => '请填写此字段',
         },
@@ -27,7 +27,7 @@ export class AppComponent {
       label: '手机',
       validations: [
         {
-          name: 'phone',
+          name: LtValidations.Phone,
           formatError: (arg) => {
             return '请填写手机号码';
           },
@@ -43,7 +43,7 @@ export class AppComponent {
       },
       validations: [
         {
-          name: 'required',
+          name: LtValidations.Required,
           args: null,
           formatError: () => {
             return '请填写密码';
@@ -57,7 +57,7 @@ export class AppComponent {
       label: '邮箱',
       validations: [
         {
-          name: 'email',
+          name: LtValidations.Email,
           args: null,
           formatError: () => {
             return '请输入一个邮箱';
@@ -74,7 +74,7 @@ export class AppComponent {
       },
       validations: [
         {
-          name: 'required',
+          name: LtValidations.Required,
           args: null,
           formatError: () => {
             return '请选择一个选项';
