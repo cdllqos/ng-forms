@@ -221,6 +221,9 @@ lt-forms
 @angular/router
 MIT
 
+@angular/service-worker
+MIT
+
 zone.js
 MIT
 The MIT License
