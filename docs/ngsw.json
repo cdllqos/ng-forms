@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "index": "/ng-forms/index.html",
+  "index": "/index.html",
   "assetGroups": [{
       "name": "app",
       "installMode": "prefetch",
