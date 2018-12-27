@@ -5,11 +5,11 @@ import { FormComponent } from './components/form/form.component';
 import { InputComponent } from './components/input/input.component';
 import { SelectComponent } from './components/select/select.component';
 import { PanelComponent } from './components/panel/panel.component';
-import { ComponentService } from './service/component.service';
-import { PanelService } from './service/panel.service';
 import { ListItemComponent } from './components/list-item/list-item.component';
 import { SelectListComponent } from './components/select-list/select-list.component';
-
+import { ComponentService } from './service/component.service';
+import { PanelService } from './service/panel.service';
+import { InitializationService } from './service/initialization.service';
 @NgModule({
   declarations: [
     FormComponent,
@@ -20,7 +20,7 @@ import { SelectListComponent } from './components/select-list/select-list.compon
     SelectListComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule],
-  providers: [ComponentService, PanelService],
+  providers: [ComponentService, PanelService, InitializationService],
   exports: [ReactiveFormsModule, FormComponent],
   entryComponents: [
     FormComponent,
@@ -32,6 +32,9 @@ import { SelectListComponent } from './components/select-list/select-list.compon
   ],
 })
 export class LtFormModule {
+  constructor(private initializationService: InitializationService) {
+    this.initializationService.initialize();
+  }
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: LtFormModule,
