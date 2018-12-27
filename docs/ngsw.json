@@ -1,8 +1,7 @@
 {
   "configVersion": 1,
-  "index": "/index.html",
-  "assetGroups": [
-    {
+  "index": "/ng-forms/index.html",
+  "assetGroups": [{
       "name": "app",
       "installMode": "prefetch",
       "updateMode": "prefetch",
@@ -52,8 +51,7 @@
     "/scripts.e84e36a0841a046b4d25.js": "8076fda56bf9c10afaf18ad5331cf28c3f2e844a",
     "/styles.fb222007a241e60ad519.css": "8dc29758d759be54113d31c9cf9fe546c3b89402"
   },
-  "navigationUrls": [
-    {
+  "navigationUrls": [{
       "positive": true,
       "regex": "^\\/.*$"
     },
