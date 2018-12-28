@@ -13,7 +13,7 @@ import { environment } from '../environments/environment';
     BrowserModule,
     AppRoutingModule,
     LtFormModule.forRoot(),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: false }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent],
