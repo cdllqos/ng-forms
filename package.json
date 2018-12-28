@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "docs": "ng build lt-forms && ng build --prod"
+    "docs": "yarn && ./node_modules/.bin/ng build lt-forms && ./node_modules/.bin/ng build --prod"
   },
   "private": true,
   "dependencies": {
