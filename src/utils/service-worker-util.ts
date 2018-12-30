@@ -1,4 +1,6 @@
 import { environment } from '../environments/environment';
+import { Injector, ApplicationRef } from '@angular/core';
+import { filter, take } from 'rxjs/operators';
 const unRegisterServicerWorker = () => {
   navigator.serviceWorker.getRegistrations().then((regs) => {
     regs.forEach((reg) => {
@@ -6,19 +8,36 @@ const unRegisterServicerWorker = () => {
     });
   });
 };
-const shouldEnableServiceWorker = (): boolean => {
+const shouldRegisterServiceWorker = (): boolean => {
   if (!environment.production) {
     return false;
   }
   if (!navigator.serviceWorker) {
-    unRegisterServicerWorker();
     return false;
   }
   const userAgent = navigator.userAgent.toLowerCase();
   if (/iphone/.test(userAgent) || /chrome/.test(userAgent)) {
     return true;
   }
-  unRegisterServicerWorker();
   return false;
 };
-export { shouldEnableServiceWorker };
+const registerServiceWoker = (injector: Injector, scriptName: string) => {
+  if (!shouldRegisterServiceWorker) {
+    unRegisterServicerWorker();
+    return;
+  }
+  const app = injector.get<ApplicationRef>(ApplicationRef);
+  const whenStable = app.isStable
+    .pipe(
+      filter((stable: boolean) => !!stable),
+      take(1)
+    )
+    .toPromise();
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (navigator.serviceWorker.controller !== null) {
+      navigator.serviceWorker.controller.postMessage({ action: 'INITIALIZE' });
+    }
+  });
+  whenStable.then(() => navigator.serviceWorker.register(scriptName));
+};
+export { registerServiceWoker };

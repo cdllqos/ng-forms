@@ -16,17 +16,5 @@
   <lt-root></lt-root>
   <noscript>Please enable JavaScript to continue using this application.</noscript>
 </body>
-<script>
-  window.onload = () => {
-    if (navigator.serviceWorker) {
-      navigator.serviceWorker.getRegistrations().then((regs) => {
-        regs.forEach((reg) => {
-          reg.unregister();
-        })
-      })
-    }
-  }
-
-</script>
 
 </html>
