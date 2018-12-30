@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LtFormModule } from 'lt-forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
+import { shouldEnableServiceWorker } from '../utils/service-worker-util';
 
 @NgModule({
   declarations: [AppComponent],
@@ -13,7 +13,7 @@ import { environment } from '../environments/environment';
     BrowserModule,
     AppRoutingModule,
     LtFormModule.forRoot(),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: false }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: shouldEnableServiceWorker() }),
   ],
   providers: [],
   bootstrap: [AppComponent],
