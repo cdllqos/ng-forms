@@ -25,7 +25,7 @@ const shouldRegisterServiceWorker = (): boolean => {
   return false;
 };
 const registerServiceWoker = (injector: Injector, scriptName: string) => {
-  if (!shouldRegisterServiceWorker) {
+  if (!shouldRegisterServiceWorker()) {
     unRegisterServicerWorker();
     return;
   }
