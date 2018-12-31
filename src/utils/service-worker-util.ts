@@ -16,6 +16,9 @@ const shouldRegisterServiceWorker = (): boolean => {
     return false;
   }
   const userAgent = navigator.userAgent.toLowerCase();
+  if (/qqbrowser/.test(userAgent) || /mzbrowser/.test(userAgent)) {
+    return false;
+  }
   if (/iphone/.test(userAgent) || /chrome/.test(userAgent)) {
     return true;
   }
