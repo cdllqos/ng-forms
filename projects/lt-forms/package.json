@@ -1,9 +1,29 @@
 {
   "name": "lt-forms",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "description": "this project is for dynamic create form field",
+  "author": {
+    "name": "mystic",
+    "email": "cdllqos@outlook.com"
+  },
+  "repository": {
+    "url": "https://github.com/cdllqos/ng-forms.git",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/cdllqos/ng-forms/issues"
+  },
+  "keywords": [
+    "angular",
+    "angular7",
+    "typescript",
+    "form",
+    "dynamic"
+  ],
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^7.0.0",
     "@angular/core": "^7.0.0",
-    "@angular/elements": "^7.0.0"
+    "@angular/forms": "~7.0.0"
   }
 }
