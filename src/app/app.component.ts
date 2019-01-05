@@ -20,6 +20,9 @@ export class AppComponent {
           formatError: () => '请填写此字段',
         },
       ],
+      valueChange: (value) => {
+        console.log('value has changed:', value);
+      },
     },
     {
       key: 'phone',
@@ -81,6 +84,9 @@ export class AppComponent {
           },
         },
       ],
+      valueChange: (value) => {
+        console.log('value has changed:', value);
+      },
     },
   ];
   onSubmit(e) {

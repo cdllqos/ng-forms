@@ -2,6 +2,7 @@ import { Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { getValidations } from '../validations';
 import { FieldModel, FieldValidator } from '../model';
+import { debounceTime } from 'rxjs/operators';
 class BaseField {
   private innerModel: FieldModel;
   @Input()
@@ -23,6 +24,11 @@ class BaseField {
       validations = getValidations(fieldModel.validations);
     }
     this.ctrl = new FormControl(fieldModel.value, validations);
+    if (fieldModel.valueChange) {
+      this.ctrl.valueChanges.pipe(debounceTime(100)).subscribe((value) => {
+        fieldModel.valueChange(value);
+      });
+    }
   }
 
   get hasValid(): boolean {
