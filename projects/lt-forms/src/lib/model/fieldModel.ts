@@ -7,6 +7,7 @@ interface FieldModel {
   value?: any;
   validations?: Array<ValidationModel>;
   options?: any;
+  valueChange?: (value: any) => void;
 }
 class FieldInstanceModel {
   model: FieldModel;

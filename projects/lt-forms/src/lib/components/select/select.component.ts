@@ -36,7 +36,9 @@ export class SelectComponent extends BaseField implements OnInit, OnDestroy {
         value: this.ctrl.value,
       },
     });
-    this.ctrl.markAsDirty();
+    if (!this.ctrl.dirty) {
+      this.ctrl.markAsDirty();
+    }
     this.selectedChange$ = selectListRef.instance.selectedChange.subscribe((val) => {
       if (this.ctrl.value === val) {
         this.ctrl.setValue('');
