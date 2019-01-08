@@ -19,12 +19,12 @@
 .submit-btn {
   display: block;
   text-align: center;
-  margin: 4.266667vw 0;
+  margin: 16px 0;
   padding: var(--form-control-tb-padding) var(--form-control-lr-padding);
   border: 1px solid var(--border-primary);
   background: var(--btn-bg-primary);
   border-radius: 1px;
-  font-size: 4.266667vw;
+  font-size: 16px;
   outline: none;
 
   &.disabled {
