@@ -1,3 +1,6 @@
-<lt-select [model]="provinceModel" (selectedChange)="onProvinceChange($event)"></lt-select>
-<lt-select [model]="cityModel" (selectedChange)="onCityChange($event)"></lt-select>
-<lt-select [model]="areaModel"></lt-select>
+<div class="flex">
+  <lt-select class="flex-1" [model]="provinceModel" (selectedChange)="onProvinceChange($event)"></lt-select>
+  <span class="spin"></span>
+  <lt-select class="flex-1" [model]="cityModel" (selectedChange)="onCityChange($event)"></lt-select>
+</div>
+<lt-select [model]="areaModel" (selectedChange)="onAreaChange($event)"></lt-select>

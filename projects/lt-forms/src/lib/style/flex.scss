@@ -36,7 +36,7 @@
 }
 
 .flex-1 {
-  flex: auto;
+  flex: 1;
 }
 
 @mixin flex-display($display:flex, $direction: row, $wrap:nowrap, $justify-content: flex-start, $align-items: baseline) {

@@ -8,6 +8,7 @@ import {area} from './area';
 import {city} from './city';
 import {province} from './province';
 
+const emptyData = [{name: '暂无数据'}];
 
 @Component({
   selector: 'lt-address',
@@ -21,6 +22,8 @@ export class AddressComponent extends BaseField implements OnInit {
   provinceModel: FieldModel;
   cityModel: FieldModel;
   areaModel: FieldModel;
+
+  adressVal: SelectItem;
   constructor() {
     super();
   }
@@ -29,22 +32,14 @@ export class AddressComponent extends BaseField implements OnInit {
     this.provinceList = province.map(m => {
       return {name: m.name, value: m.id};
     });
-    this.cityList = city[this.provinceList[0].value].map(m => {
-      return {name: m.name, value: m.id};
-    });
-    this.areaList = area[this.cityList[0].value].map(m => {
-      return {name: m.name, value: m.id};
-    });
     this.buildSelectList();
   }
 
   buildSelectList() {
     this.provinceModel =
         this.buildFieldModel('province', '省', this.provinceList);
-
-    this.cityModel = this.buildFieldModel('city', '城市', this.cityList);
-
-    this.areaModel = this.buildFieldModel('area', '区县', this.areaList);
+    this.cityModel = this.buildFieldModel('city', '城市', emptyData);
+    this.areaModel = this.buildFieldModel('area', '区县', emptyData);
   }
 
   onProvinceChange(provinceId) {
@@ -55,7 +50,7 @@ export class AddressComponent extends BaseField implements OnInit {
       return {name: m.name, value: m.id};
     });
     this.cityModel = this.buildFieldModel('city', '城市', this.cityList);
-    this.onCityChange(this.cityList[0].value);
+    this.areaModel = this.buildFieldModel('area', '区县', emptyData);
   }
 
   onCityChange(cityId) {
@@ -68,6 +63,8 @@ export class AddressComponent extends BaseField implements OnInit {
     this.areaModel = this.buildFieldModel('area', '区县', this.areaList);
   }
 
+  onAreaChange(areaId) {}
+
   private buildFieldModel(key: string, label: string, list: Array<SelectItem>):
       FieldModel {
     return {
@@ -79,4 +76,6 @@ export class AddressComponent extends BaseField implements OnInit {
       }
     };
   }
+
+  private setFieldVal() {}
 }
