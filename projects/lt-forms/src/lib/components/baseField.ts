@@ -1,8 +1,10 @@
-import { Input } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { getValidations } from '../validations';
-import { FieldModel, FieldValidator } from '../model';
-import { debounceTime } from 'rxjs/operators';
+import {Input} from '@angular/core';
+import {FormControl} from '@angular/forms';
+import {debounceTime} from 'rxjs/operators';
+
+import {FieldModel, FieldValidator} from '../model';
+import {getValidations} from '../validations';
+
 class BaseField {
   private innerModel: FieldModel;
   @Input()
@@ -12,6 +14,7 @@ class BaseField {
   set model(val: FieldModel) {
     if (val) {
       this.innerModel = val;
+      this.build(this);
       this.setCtrl(val);
     }
   }
@@ -67,5 +70,7 @@ class BaseField {
     const validation = this.model.validations.find((m) => m.name === code);
     return validation;
   }
+
+  build(context: BaseField) {}
 }
-export { BaseField };
+export {BaseField};

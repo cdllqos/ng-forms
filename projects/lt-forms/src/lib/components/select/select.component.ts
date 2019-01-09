@@ -1,8 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { BaseField } from '../baseField';
-import { PanelService } from '../../service/panel.service';
-import { SelectListComponent } from '../select-list/select-list.component';
-import { Subscription } from 'rxjs';
+import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
+import {Subscription} from 'rxjs';
+
+import {SelectItem} from '../../model/selectItem';
+import {PanelService} from '../../service/panel.service';
+import {BaseField} from '../baseField';
+import {SelectListComponent} from '../select-list/select-list.component';
 
 @Component({
   selector: 'lt-select',
@@ -11,22 +13,14 @@ import { Subscription } from 'rxjs';
 })
 export class SelectComponent extends BaseField implements OnInit, OnDestroy {
   selectedChange$: Subscription;
-  private list: Array<{ name?: string; value?: string }> = [];
+  @Output() selectedChange: EventEmitter<any> = new EventEmitter<any>();
+  private list: Array<SelectItem> = [];
 
   constructor(private panelService: PanelService) {
     super();
   }
 
-  ngOnInit() {
-    if (this.model.options && this.model.options['list']) {
-      this.list = this.model.options['list'].map((m) => {
-        return {
-          name: m['name'],
-          value: m['value'],
-        };
-      });
-    }
-  }
+  ngOnInit() {}
 
   showSelection() {
     const selectListRef = this.panelService.showPanel({
@@ -39,14 +33,16 @@ export class SelectComponent extends BaseField implements OnInit, OnDestroy {
     if (!this.ctrl.dirty) {
       this.ctrl.markAsDirty();
     }
-    this.selectedChange$ = selectListRef.instance.selectedChange.subscribe((val) => {
-      if (this.ctrl.value === val) {
-        this.ctrl.setValue('');
-      } else {
-        this.ctrl.setValue(val);
-      }
-      this.panelService.closePanel();
-    });
+    this.selectedChange$ =
+        selectListRef.instance.selectedChange.subscribe((val) => {
+          if (this.ctrl.value === val) {
+            this.ctrl.setValue('');
+          } else {
+            this.ctrl.setValue(val);
+          }
+          this.selectedChange.emit(this.ctrl.value);
+          this.panelService.closePanel();
+        });
   }
 
   get selectedName() {
@@ -58,6 +54,17 @@ export class SelectComponent extends BaseField implements OnInit, OnDestroy {
       return selectedItem.name;
     }
     return '';
+  }
+
+  build(context: SelectComponent) {
+    if (this.model.options && this.model.options['list']) {
+      this.list = this.model.options['list'].map((m) => {
+        return {
+          name: m['name'],
+          value: m['value'],
+        };
+      });
+    }
   }
 
   ngOnDestroy() {
