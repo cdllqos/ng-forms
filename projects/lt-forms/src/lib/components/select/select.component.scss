@@ -1,13 +1,23 @@
+@import '../../style/utils.scss';
+
 :host {
   display: block;
 }
 
 .content {
+
   .select {
-    padding: var(--form-control-tb-padding) var(--form-control-lr-padding);
-    border: 1px solid var(--border-primary);
-    border-radius: 1px;
     display: flex;
     justify-content: space-between;
+    border: 1px solid var(--border-primary);
+    border-radius: 1px;
+    padding: var(--form-control-tb-padding) var(--form-control-lr-padding);
+  }
+
+  .select-text {
+    @extend .overflow-text;
+    border: 1px solid var(--border-primary);
+    border-radius: 1px;
+    padding: var(--form-control-tb-padding) var(--form-control-lr-padding);
   }
 }
