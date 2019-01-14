@@ -8,7 +8,7 @@ import {area} from './area';
 import {city} from './city';
 import {province} from './province';
 
-const emptyData = [{name: '暂无数据'}];
+const emptyData = (tips: string) => [{name: tips}];
 const PROVINCE = 'province';
 const CITY = 'city';
 const AREA = 'area';
@@ -44,16 +44,19 @@ export class AddressComponent extends BaseField implements OnInit {
   buildSelectList() {
     this.provinceModel =
         this.buildFieldModel(PROVINCE, '省', this.provinceList);
-    this.cityModel = this.buildFieldModel(CITY, '城市', emptyData);
-    this.areaModel = this.buildFieldModel(AREA, '区县', emptyData);
+    this.cityModel = this.buildFieldModel(CITY, '城市', emptyData('请选择省'));
+    this.areaModel =
+        this.buildFieldModel(AREA, '区县', emptyData('请选择城市'));
   }
 
   onProvinceChange(provinceId) {
     const selectedProvince =
         this.provinceList.find(m => m.value === provinceId);
     if (!selectedProvince) {
-      this.cityModel = this.buildFieldModel(CITY, '城市', emptyData);
-      this.areaModel = this.buildFieldModel(AREA, '区县', emptyData);
+      this.cityModel =
+          this.buildFieldModel(CITY, '城市', emptyData('请选择省'));
+      this.areaModel =
+          this.buildFieldModel(AREA, '区县', emptyData('请选择城市'));
       this.setFieldVal(PROVINCE, '', '');
       return;
     }
@@ -62,7 +65,8 @@ export class AddressComponent extends BaseField implements OnInit {
       return {name: m.name, value: m.id};
     });
     this.cityModel = this.buildFieldModel(CITY, '城市', this.cityList);
-    this.areaModel = this.buildFieldModel(AREA, '区县', emptyData);
+    this.areaModel =
+        this.buildFieldModel(AREA, '区县', emptyData('请选择城市'));
   }
 
   onCityChange(cityId) {
@@ -89,20 +93,20 @@ export class AddressComponent extends BaseField implements OnInit {
   }
 
   private initialVal() {
-    this.nameResultMap.set(PROVINCE, '');
-    this.nameResultMap.set(CITY, '');
-    this.nameResultMap.set(AREA, '');
-    this.valueResultMap.set(PROVINCE, '');
-    this.valueResultMap.set(CITY, '');
-    this.valueResultMap.set(AREA, '');
+    [PROVINCE, CITY, AREA].forEach((m => {
+      this.nameResultMap.set(m, '');
+      this.valueResultMap.set(m, '');
+    }));
   }
 
-  private buildFieldModel(key: string, label: string, list: Array<SelectItem>):
-      FieldModel {
+  private buildFieldModel(
+      key: string, label: string, list: Array<SelectItem>,
+      selectedVal?: string): FieldModel {
     return {
       key: key,
       type: 'select',
       label: label,
+      value: selectedVal,
       options: {
         list: list,
       }
@@ -112,12 +116,15 @@ export class AddressComponent extends BaseField implements OnInit {
   private setFieldVal(key: string, name: string, value: string) {
     switch (key) {
       case PROVINCE: {
-        this.nameResultMap.set(PROVINCE, name);
-        this.nameResultMap.set(CITY, '');
-        this.nameResultMap.set(AREA, '');
-        this.valueResultMap.set(PROVINCE, value);
-        this.valueResultMap.set(CITY, '');
-        this.valueResultMap.set(AREA, '');
+        [PROVINCE, CITY, AREA].forEach((m => {
+          if (m === PROVINCE) {
+            this.nameResultMap.set(m, name);
+            this.valueResultMap.set(m, value);
+          } else {
+            this.nameResultMap.set(m, '');
+            this.valueResultMap.set(m, '');
+          }
+        }));
         break;
       }
       case CITY: {
