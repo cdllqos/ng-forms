@@ -16,6 +16,8 @@ this project is for dynamic create form field
 
 - select component
 
+- address component
+
 ## Installation
 
 ```bash
@@ -59,26 +61,33 @@ export class AppComponent {
       key: 'username',
       type: 'input',
       label: '文本',
-      validations: [
-        {
-          name: LtValidations.Required,
-          args: null,
-          formatError: () => '请填写此字段',
-        },
-      ],
+      validations:
+          [
+            {
+              name: LtValidations.Required,
+              args: null,
+              formatError: () => '请填写此字段',
+            },
+          ],
+      valueChange:
+          (value) => {
+            console.log('value has changed:', value);
+          },
     },
     {
       key: 'phone',
       type: 'input',
       label: '手机',
-      validations: [
-        {
-          name: LtValidations.Phone,
-          formatError: (arg) => {
-            return '请填写手机号码';
-          },
-        },
-      ],
+      validations:
+          [
+            {
+              name: LtValidations.Phone,
+              formatError:
+                  (arg) => {
+                    return '请填写手机号码';
+                  },
+            },
+          ],
     },
     {
       key: 'password',
@@ -87,47 +96,58 @@ export class AppComponent {
       options: {
         type: 'password',
       },
-      validations: [
-        {
-          name: LtValidations.Required,
-          args: null,
-          formatError: () => {
-            return '请填写密码';
-          },
-        },
-      ],
+      validations:
+          [
+            {
+              name: LtValidations.Required,
+              args: null,
+              formatError:
+                  () => {
+                    return '请填写密码';
+                  },
+            },
+          ],
     },
     {
       key: 'email',
       type: 'input',
       label: '邮箱',
-      validations: [
-        {
-          name: LtValidations.Email,
-          args: null,
-          formatError: () => {
-            return '请输入一个邮箱';
-          },
-        },
-      ],
+      validations:
+          [
+            {
+              name: LtValidations.Email,
+              args: null,
+              formatError:
+                  () => {
+                    return '请输入一个邮箱';
+                  },
+            },
+          ],
     },
     {
       key: 'select',
       type: 'select',
       label: '选择器',
       options: {
-        list: [{ name: '选项1', value: '111' }, { name: '选项2', value: '222' }],
+        list: [{name: '选项1', value: '111'}, {name: '选项2', value: '222'}],
       },
-      validations: [
-        {
-          name: LtValidations.Required,
-          args: null,
-          formatError: () => {
-            return '请选择一个选项';
+      validations:
+          [
+            {
+              name: LtValidations.Required,
+              args: null,
+              formatError:
+                  () => {
+                    return '请选择一个选项';
+                  },
+            },
+          ],
+      valueChange:
+          (value) => {
+            console.log('value has changed:', value);
           },
-        },
-      ],
     },
+    {key: 'adress', type: 'address'}
   ];
   onSubmit(e) {
     console.table(e);

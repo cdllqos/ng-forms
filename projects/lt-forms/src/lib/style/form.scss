@@ -3,7 +3,7 @@
 .section {
   display: flex;
   flex-wrap: wrap;
-  font-size: 4.266667vw;
+  font-size: 16px;
 
   label {
     display: block;
@@ -13,18 +13,17 @@
   .content {
     display: block;
     width: 100%;
-    margin: 2.133333vw 0;
+    margin: 8px 0;
   }
 
   .invalid {
     padding-bottom: 10px;
 
     span {
-      font-size: 3.733333vw;
+      font-size: 14px;
       display: none;
       color: var(--danger);
-      animation: fadeIn .3s linear;
-
+      animation: fadeIn 0.3s linear;
 
       &:first-child {
         display: block;

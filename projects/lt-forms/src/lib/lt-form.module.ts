@@ -1,15 +1,18 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
-import { FormComponent } from './components/form/form.component';
-import { InputComponent } from './components/input/input.component';
-import { SelectComponent } from './components/select/select.component';
-import { PanelComponent } from './components/panel/panel.component';
-import { ListItemComponent } from './components/list-item/list-item.component';
-import { SelectListComponent } from './components/select-list/select-list.component';
-import { ComponentService } from './service/component.service';
-import { PanelService } from './service/panel.service';
-import { InitializationService } from './service/initialization.service';
+import {CommonModule} from '@angular/common';
+import {ModuleWithProviders, NgModule} from '@angular/core';
+import {ReactiveFormsModule} from '@angular/forms';
+
+import {AddressComponent} from './components/address/address.component';
+import {FormComponent} from './components/form/form.component';
+import {InputComponent} from './components/input/input.component';
+import {ListItemComponent} from './components/list-item/list-item.component';
+import {PanelComponent} from './components/panel/panel.component';
+import {SelectListComponent} from './components/select-list/select-list.component';
+import {SelectComponent} from './components/select/select.component';
+import {ComponentService} from './service/component.service';
+import {InitializationService} from './service/initialization.service';
+import {PanelService} from './service/panel.service';
+
 @NgModule({
   declarations: [
     FormComponent,
@@ -18,17 +21,14 @@ import { InitializationService } from './service/initialization.service';
     PanelComponent,
     ListItemComponent,
     SelectListComponent,
+    AddressComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule],
   providers: [ComponentService, PanelService, InitializationService],
   exports: [ReactiveFormsModule, FormComponent],
   entryComponents: [
-    FormComponent,
-    InputComponent,
-    SelectComponent,
-    PanelComponent,
-    ListItemComponent,
-    SelectListComponent,
+    FormComponent, InputComponent, SelectComponent, PanelComponent,
+    ListItemComponent, SelectListComponent, AddressComponent
   ],
 })
 export class LtFormModule {

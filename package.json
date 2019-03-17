@@ -4,6 +4,7 @@
   "scripts": {
     "serve": "./node_modules/.bin/ng serve",
     "build": "yarn && ./node_modules/.bin/ng build lt-forms && ./node_modules/.bin/ng build --prod",
+    "publish": "./publish.sh",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
