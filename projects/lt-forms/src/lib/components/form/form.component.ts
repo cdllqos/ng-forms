@@ -1,24 +1,16 @@
-import {
-  Component,
-  OnInit,
-  Output,
-  EventEmitter,
-  ViewContainerRef,
-  ViewChild,
-  Input,
-  ComponentRef,
-  ViewEncapsulation,
-} from '@angular/core';
-import { ComponentService } from '../../service/component.service';
-import { FieldInstanceModel, FieldModel } from '../../model/fieldModel';
-import { BaseField } from '../baseField';
-import { FindFiledByTypeName } from '../../utils/filedsMap';
+import {ChangeDetectionStrategy, Component, ComponentRef, EventEmitter, Input, OnInit, Output, ViewChild, ViewContainerRef, ViewEncapsulation,} from '@angular/core';
+
+import {FieldInstanceModel, FieldModel} from '../../model/fieldModel';
+import {ComponentService} from '../../service/component.service';
+import {FindFiledByTypeName} from '../../utils/filedsMap';
+import {BaseField} from '../baseField';
 
 @Component({
   selector: 'lt-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss'],
   encapsulation: ViewEncapsulation.ShadowDom,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormComponent implements OnInit {
   private innerFields: Array<FieldModel>;
@@ -29,6 +21,7 @@ export class FormComponent implements OnInit {
     return this.innerFields;
   }
   set ltFields(fields: Array<FieldModel>) {
+    console.log('fields', fields);
     if (!fields) {
       console.warn(`please use ltField like this:
       <lt-form [ltFields]="fields"></lt-form>`);
@@ -41,7 +34,8 @@ export class FormComponent implements OnInit {
     this.buildFiledComponents();
   }
   @Output() ltSubmit: EventEmitter<any> = new EventEmitter<any>();
-  @ViewChild('viewContainer', { read: ViewContainerRef }) viewContainer: ViewContainerRef;
+  @ViewChild('viewContainer', {read: ViewContainerRef})
+  viewContainer: ViewContainerRef;
 
   constructor(private componentService: ComponentService) {}
 
@@ -50,17 +44,17 @@ export class FormComponent implements OnInit {
   private buildFiledComponents() {
     this.innerFields.forEach((field) => {
       const component = FindFiledByTypeName(field.type);
-      const componentRef = this.componentService.attachView<BaseField, FieldInstanceModel>(
-        {
-          component: component,
-          props: {
-            model: {
-              ...field,
-            },
-          },
-        },
-        this.viewContainer
-      );
+      const componentRef =
+          this.componentService.attachView<BaseField, FieldInstanceModel>(
+              {
+                component: component,
+                props: {
+                  model: {
+                    ...field,
+                  },
+                },
+              },
+              this.viewContainer);
       this.fieldRefs.push(componentRef);
     });
   }
@@ -76,7 +70,7 @@ export class FormComponent implements OnInit {
           field.instance.ctrl.markAsDirty();
         }
       });
-      this.ltSubmit.emit({ error: `can't submit form` });
+      this.ltSubmit.emit({error: `can't submit form`});
       return;
     }
     const result = {};

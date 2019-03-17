@@ -1,14 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, APP_INITIALIZER, Injector } from '@angular/core';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {LtFormModule} from 'lt-forms';
+import {environment} from 'src/environments/environment';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { LtFormModule } from 'lt-forms';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { registerServiceWoker } from 'src/utils/service-worker-util';
-export function initServiceWorker(injector: Injector) {
-  return () => registerServiceWoker(injector, 'ngsw-worker.js');
-}
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -16,17 +14,11 @@ export function initServiceWorker(injector: Injector) {
     AppRoutingModule,
     LtFormModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: false,
+      enabled: environment.production,
     }),
   ],
-  providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: initServiceWorker,
-      deps: [Injector],
-      multi: true,
-    },
-  ],
+  providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+}
