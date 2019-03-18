@@ -21,7 +21,6 @@ export class FormComponent implements OnInit {
     return this.innerFields;
   }
   set ltFields(fields: Array<FieldModel>) {
-    console.log('fields', fields);
     if (!fields) {
       console.warn(`please use ltField like this:
       <lt-form [ltFields]="fields"></lt-form>`);

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
 import {Subscription} from 'rxjs';
 
 import {SelectItem} from '../../model/selectItem';
@@ -10,6 +10,7 @@ import {SelectListComponent} from '../select-list/select-list.component';
   selector: 'lt-select',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SelectComponent extends BaseField implements OnInit, OnDestroy {
   selectedChange$: Subscription;

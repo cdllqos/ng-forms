@@ -2,7 +2,7 @@
   "name": "ng-forms",
   "version": "0.0.0",
   "scripts": {
-    "serve": "npx ng serve",
+    "dev": "npx ng serve",
     "build": "yarn && npx ng build lt-forms && npx ng build --prod",
     "publish": "./publish.sh",
     "test": "ng test",

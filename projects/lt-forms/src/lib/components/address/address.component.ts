@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 
 import {FieldModel} from '../../model';
 import {SelectItem} from '../../model/selectItem';
@@ -17,6 +17,7 @@ const AREA = 'area';
   selector: 'lt-address',
   templateUrl: './address.component.html',
   styleUrls: ['./address.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AddressComponent extends BaseField implements OnInit {
   provinceList: Array<SelectItem> = [];
