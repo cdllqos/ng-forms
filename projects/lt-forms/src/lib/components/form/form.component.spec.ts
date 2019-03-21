@@ -1,18 +1,25 @@
-import { TestBed, ComponentFixture } from '@angular/core/testing';
-import { FormComponent } from './form.component';
-import { BrowserModule } from '@angular/platform-browser';
-import { InputComponent } from '../input/input.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {ReactiveFormsModule} from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
+
+import {ComponentService, PanelService} from '../../service';
+import {InputComponent} from '../input/input.component';
+
+import {FormComponent} from './form.component';
+
 describe('form Component', () => {
   let componentInstance: FormComponent;
   let fixtrue: ComponentFixture<FormComponent>;
   let formComponentEl: HTMLElement;
 
   beforeEach(async () => {
-    TestBed.configureTestingModule({
-      declarations: [FormComponent, InputComponent],
-      imports: [ReactiveFormsModule],
-    }).compileComponents();
+    TestBed
+        .configureTestingModule({
+          declarations: [FormComponent, InputComponent],
+          imports: [ReactiveFormsModule],
+          providers: [ComponentService, PanelService],
+        })
+        .compileComponents();
   });
 
   beforeEach(async () => {
@@ -42,6 +49,7 @@ describe('form Component', () => {
       },
     ];
     fixtrue.detectChanges();
+    console.log(formComponentEl.shadowRoot);
     const queryResult = formComponentEl.shadowRoot.querySelector('lt-input');
     expect(queryResult).not.toBeNull();
   });

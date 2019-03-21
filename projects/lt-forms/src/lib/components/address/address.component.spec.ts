@@ -1,5 +1,8 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
+import {ComponentService, PanelService} from '../../service';
+import {SelectComponent} from '../select/select.component';
+
 import {AddressComponent} from './address.component';
 
 describe('AddresComponent', () => {
@@ -7,7 +10,11 @@ describe('AddresComponent', () => {
   let fixture: ComponentFixture<AddressComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({declarations: [AddressComponent]})
+    TestBed
+        .configureTestingModule({
+          declarations: [AddressComponent, SelectComponent],
+          providers: [ComponentService, PanelService]
+        })
         .compileComponents();
   }));
 

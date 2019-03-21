@@ -10,7 +10,6 @@ import {PanelComponent} from './components/panel/panel.component';
 import {SelectListComponent} from './components/select-list/select-list.component';
 import {SelectComponent} from './components/select/select.component';
 import {ComponentService} from './service/component.service';
-import {InitializationService} from './service/initialization.service';
 import {PanelService} from './service/panel.service';
 
 @NgModule({
@@ -24,7 +23,7 @@ import {PanelService} from './service/panel.service';
     AddressComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule],
-  providers: [ComponentService, PanelService, InitializationService],
+  providers: [ComponentService, PanelService],
   exports: [ReactiveFormsModule, FormComponent],
   entryComponents: [
     FormComponent, InputComponent, SelectComponent, PanelComponent,
@@ -32,9 +31,7 @@ import {PanelService} from './service/panel.service';
   ],
 })
 export class LtFormModule {
-  constructor(private initializationService: InitializationService) {
-    this.initializationService.initialize();
-  }
+  constructor() {}
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: LtFormModule,

@@ -1,6 +1,6 @@
 <div class="section">
   <label>
-    {{model.label}}
+    {{model?.label}}
   </label>
   <div class="content" (click)="showSelection()">
     <div class="select" *ngIf="!selectedName;else valueTpl">

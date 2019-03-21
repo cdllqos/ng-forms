@@ -43,6 +43,9 @@ export class FormComponent implements OnInit {
   private buildFiledComponents() {
     this.innerFields.forEach((field) => {
       const component = FindFiledByTypeName(field.type);
+      console.log('component: ============================================');
+      console.log('component: ', component);
+      console.log('component: ============================================');
       const componentRef =
           this.componentService.attachView<BaseField, FieldInstanceModel>(
               {

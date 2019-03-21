@@ -1,36 +1,44 @@
-import { ValidationModel, FieldValidator } from '../model/validationModel';
+import {Validators} from '@angular/forms';
+
+import {FieldValidator, ValidationModel} from '../model/validationModel';
+
 import * as customValidations from './customValidation';
-import { Validators } from '@angular/forms';
 
-const validations: Map<string, (arg?: any) => FieldValidator> = new Map();
-
-const initValidationMap = () => {
-  validations.set('required', () => Validators.required);
-  validations.set('minlength', (min: number) => Validators.minLength(min));
-  validations.set('maxlength', (max: number) => Validators.maxLength(max));
-  validations.set('min', (min: number) => Validators.min(min));
-  validations.set('max', (max: number) => Validators.max(max));
-  validations.set('email', () => Validators.email);
-  validations.set('pattern', (pattern: string | RegExp) => Validators.pattern(pattern));
+function initValidationMap() {
+  const map: Map<string, (arg?: any) => FieldValidator> = new Map();
+  map.set('required', () => Validators.required);
+  map.set('minlength', (min: number) => Validators.minLength(min));
+  map.set('maxlength', (max: number) => Validators.maxLength(max));
+  map.set('min', (min: number) => Validators.min(min));
+  map.set('max', (max: number) => Validators.max(max));
+  map.set('email', () => Validators.email);
+  map.set('pattern', (pattern: string|RegExp) => Validators.pattern(pattern));
   validations.set('phone', () => customValidations.phone);
-};
+  return map;
+}
 
-const getValidation = (validationModel: ValidationModel): FieldValidator | null => {
-  const validator = validations.get(validationModel.name);
-  if (validator) {
-    return validator(validationModel.args);
-  }
-  return null;
-};
+const validations: Map<string, (arg?: any) => FieldValidator> =
+    initValidationMap();
 
-const getValidations = (validationModels: Array<ValidationModel>): FieldValidator => {
-  const resultValidations: Array<FieldValidator> = [];
-  validationModels.forEach((validationModel) => {
-    const validation = getValidation(validationModel);
-    if (validation) {
-      resultValidations.push(validation);
-    }
-  });
-  return resultValidations;
-};
-export { getValidations, initValidationMap };
+
+const getValidation =
+    (validationModel: ValidationModel): FieldValidator|null => {
+      const validator = validations.get(validationModel.name);
+      if (validator) {
+        return validator(validationModel.args);
+      }
+      return null;
+    };
+
+const getValidations =
+    (validationModels: Array<ValidationModel>): FieldValidator => {
+      const resultValidations: Array<FieldValidator> = [];
+      validationModels.forEach((validationModel) => {
+        const validation = getValidation(validationModel);
+        if (validation) {
+          resultValidations.push(validation);
+        }
+      });
+      return resultValidations;
+    };
+export {getValidations};

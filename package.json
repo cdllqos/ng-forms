@@ -5,9 +5,9 @@
     "dev": "npx ng serve",
     "build": "yarn && npx ng build lt-forms && npx ng build --prod",
     "publish": "./publish.sh",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "test": "npx ng test lt-forms",
+    "lint": "npx ng lint",
+    "e2e": "npx ng e2e"
   },
   "private": true,
   "dependencies": {
