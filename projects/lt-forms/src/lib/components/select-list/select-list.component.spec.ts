@@ -1,21 +1,19 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {ComponentService, PanelService} from '../../service';
-import {ListItemComponent} from '../list-item/list-item.component';
+import { ComponentService, PanelService } from '../../service';
+import { ListItemComponent } from '../list-item/list-item.component';
 
-import {SelectListComponent} from './select-list.component';
+import { SelectListComponent } from './select-list.component';
 
 describe('SelectListComponent', () => {
   let component: SelectListComponent;
   let fixture: ComponentFixture<SelectListComponent>;
 
   beforeEach(async(() => {
-    TestBed
-        .configureTestingModule({
-          declarations: [SelectListComponent, ListItemComponent],
-          providers: [ComponentService, PanelService]
-        })
-        .compileComponents();
+    TestBed.configureTestingModule({
+      declarations: [SelectListComponent, ListItemComponent],
+      providers: [ComponentService, PanelService]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

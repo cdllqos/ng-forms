@@ -16,8 +16,8 @@ export class PanelService {
       component: PanelComponent,
       props: {
         position: option.position ? option.position : 'bottom',
-        showMask: option.showMask === false ? false : true,
-      },
+        showMask: option.showMask === false ? false : true
+      }
     });
     this.closeSubscription$ = this.panelRef.instance.close.subscribe(() => {
       this.closePanel();
@@ -26,7 +26,7 @@ export class PanelService {
     const contentRef = this.componentService.attachView(
       {
         component: option.content,
-        props: option.props,
+        props: option.props
       },
       viewContainer
     );

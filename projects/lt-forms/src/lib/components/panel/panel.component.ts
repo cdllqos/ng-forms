@@ -6,13 +6,13 @@ import {
   Input,
   HostBinding,
   Output,
-  EventEmitter,
+  EventEmitter
 } from '@angular/core';
 
 @Component({
   selector: 'lt-panel',
   templateUrl: './panel.component.html',
-  styleUrls: ['./panel.component.scss'],
+  styleUrls: ['./panel.component.scss']
 })
 export class PanelComponent implements OnInit {
   @ViewChild('viewContainer', { read: ViewContainerRef }) viewContainer: ViewContainerRef;

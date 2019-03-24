@@ -5,7 +5,7 @@ const phone = (control: AbstractControl): ValidationErrors => {
     return null;
   }
   return {
-    phone: 'not a valid phone number',
+    phone: 'not a valid phone number'
   };
 };
 export { phone };

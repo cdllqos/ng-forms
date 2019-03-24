@@ -1,6 +1,6 @@
 {
   "name": "lt-forms",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "this project is for dynamic create form field",
   "author": {
     "name": "mystic",
@@ -22,8 +22,8 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^7.0.0",
-    "@angular/core": "^7.0.0",
-    "@angular/forms": "~7.0.0"
+    "@angular/common": "~7.2.0",
+    "@angular/core": "~7.2.0",
+    "@angular/forms": "~7.2.0"
   }
 }

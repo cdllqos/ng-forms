@@ -20,9 +20,6 @@
     "paths": {
       "lt-forms": [
         "./projects/lt-forms/src/public_api"
-      ],
-      "lt-forms/*": [
-        "./projects/lt-forms/src/*"
       ]
     }
   }

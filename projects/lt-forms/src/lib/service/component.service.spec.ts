@@ -6,7 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
   selector: 'lt-test-component',
-  template: ``,
+  template: ``
 })
 export class LtTestComponent {
   @Input() ltInput = '';
@@ -16,7 +16,7 @@ export class LtTestComponent {
   selector: 'lt-view-container',
   template: `
     <ng-container #viewContainer></ng-container>
-  `,
+  `
 })
 export class LtViewContainerComponent {
   @ViewChild('viewContainer', { read: ViewContainerRef }) viewContainer: ViewContainerRef;
@@ -24,11 +24,11 @@ export class LtViewContainerComponent {
 
 const clearNodes = () => {
   const testComponent = document.body.querySelectorAll('lt-test-component');
-  testComponent.forEach((node) => {
+  testComponent.forEach(node => {
     document.body.removeChild(node);
   });
   const viewContainerComponent = document.body.querySelectorAll('lt-view-container');
-  viewContainerComponent.forEach((node) => {
+  viewContainerComponent.forEach(node => {
     document.body.removeChild(node);
   });
 };
@@ -41,15 +41,15 @@ describe('ComponentService', () => {
   beforeEach(() =>
     TestBed.configureTestingModule({
       declarations: [LtTestComponent, LtViewContainerComponent],
-      providers: [ComponentService],
+      providers: [ComponentService]
     })
   );
 
   beforeEach(() => {
     TestBed.overrideModule(BrowserModule, {
       set: {
-        entryComponents: [LtTestComponent],
-      },
+        entryComponents: [LtTestComponent]
+      }
     });
     componentService = TestBed.get(ComponentService);
     component = TestBed.createComponent(LtViewContainerComponent);
@@ -65,7 +65,7 @@ describe('ComponentService', () => {
 
   it('should attach component view without view container', () => {
     componentService.attachView({
-      component: LtTestComponent,
+      component: LtTestComponent
     });
     const queryResult = document.body.querySelector('lt-test-component');
     expect(queryResult).not.toBeNull();
@@ -74,7 +74,7 @@ describe('ComponentService', () => {
   it('should attach component view with view container', () => {
     componentService.attachView(
       {
-        component: LtTestComponent,
+        component: LtTestComponent
       },
       viewContainerInstance.viewContainer
     );
@@ -86,8 +86,8 @@ describe('ComponentService', () => {
     const componentRef = componentService.attachView({
       component: LtTestComponent,
       props: {
-        ltInput: 'hi lt test component',
-      },
+        ltInput: 'hi lt test component'
+      }
     });
     expect(componentRef.instance.ltInput).toBe('hi lt test component');
   });
@@ -97,8 +97,8 @@ describe('ComponentService', () => {
       {
         component: LtTestComponent,
         props: {
-          ltInput: 'hi lt test component',
-        },
+          ltInput: 'hi lt test component'
+        }
       },
       viewContainerInstance.viewContainer
     );
@@ -107,7 +107,7 @@ describe('ComponentService', () => {
 
   it('should detach component view without view container', () => {
     const componentRef = componentService.attachView({
-      component: LtTestComponent,
+      component: LtTestComponent
     });
     const queryResult = document.body.querySelector('lt-test-component');
     expect(queryResult).not.toBeNull();
@@ -119,7 +119,7 @@ describe('ComponentService', () => {
   it('should detach component view with view container', () => {
     const componentRef = componentService.attachView(
       {
-        component: LtTestComponent,
+        component: LtTestComponent
       },
       viewContainerInstance.viewContainer
     );

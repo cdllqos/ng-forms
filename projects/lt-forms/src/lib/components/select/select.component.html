@@ -1,17 +1,17 @@
 <div class="section">
   <label>
-    {{model?.label}}
+    {{ model?.label }}
   </label>
   <div class="content" (click)="showSelection()">
-    <div class="select" *ngIf="!selectedName;else valueTpl">
+    <div class="select" *ngIf="!selectedName; else valueTpl">
       <span>请选择</span>
       <i class="iconfont lt-arrow-down"></i>
     </div>
     <ng-template #valueTpl>
-      <div class="select-text">{{selectedName}}</div>
+      <div class="select-text">{{ selectedName }}</div>
     </ng-template>
   </div>
   <div [class.invalid]="!hasValid">
-    <span *ngIf="getError('required')" class="text-field-error">{{getError('required')}}</span>
+    <span *ngIf="getError('required')" class="text-field-error">{{ getError('required') }}</span>
   </div>
 </div>

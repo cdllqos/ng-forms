@@ -6,6 +6,6 @@ enum LtValidations {
   Max = 'max',
   Email = 'email',
   Pattern = 'pattern',
-  Phone = 'phone',
+  Phone = 'phone'
 }
 export { LtValidations };

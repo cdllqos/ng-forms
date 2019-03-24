@@ -1,12 +1,12 @@
 <div class="section">
   <label [for]="model.key">
-    {{model.label}}
+    {{ model.label }}
   </label>
-  <input [type]="type" [formControl]="ctrl" [id]="model.key">
+  <input [type]="type" [formControl]="ctrl" [id]="model.key" />
   <div [class.invalid]="!hasValid">
-    <span *ngIf="getError('required')" class="text-field-error">{{getError('required')}}</span>
-    <span *ngIf="getError('minlength')" class="text-field-error">{{getError('minlength')}}</span>
-    <span *ngIf="getError('email')" class="text-field-error">{{getError('email')}}</span>
-    <span *ngIf="getError('phone')" class="text-field-error">{{getError('phone')}}</span>
+    <span *ngIf="getError('required')" class="text-field-error">{{ getError('required') }}</span>
+    <span *ngIf="getError('minlength')" class="text-field-error">{{ getError('minlength') }}</span>
+    <span *ngIf="getError('email')" class="text-field-error">{{ getError('email') }}</span>
+    <span *ngIf="getError('phone')" class="text-field-error">{{ getError('phone') }}</span>
   </div>
 </div>

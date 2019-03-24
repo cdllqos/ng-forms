@@ -1,9 +1,9 @@
-import {Input} from '@angular/core';
-import {FormControl} from '@angular/forms';
-import {debounceTime} from 'rxjs/operators';
+import { Input } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { debounceTime } from 'rxjs/operators';
 
-import {FieldModel, FieldValidator} from '../model';
-import {getValidations} from '../validations';
+import { FieldModel, FieldValidator } from '../model';
+import { getValidations } from '../validations';
 
 class BaseField {
   private innerModel: FieldModel;
@@ -28,7 +28,7 @@ class BaseField {
     }
     this.ctrl = new FormControl(fieldModel.value, validations);
     if (fieldModel.valueChange) {
-      this.ctrl.valueChanges.pipe(debounceTime(100)).subscribe((value) => {
+      this.ctrl.valueChanges.pipe(debounceTime(100)).subscribe(value => {
         fieldModel.valueChange(value);
       });
     }
@@ -67,10 +67,10 @@ class BaseField {
     if (!this.model || !this.model.validations) {
       return null;
     }
-    const validation = this.model.validations.find((m) => m.name === code);
+    const validation = this.model.validations.find(m => m.name === code);
     return validation;
   }
 
   build(context: BaseField) {}
 }
-export {BaseField};
+export { BaseField };

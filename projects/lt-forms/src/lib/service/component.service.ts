@@ -4,7 +4,7 @@ import {
   ComponentFactoryResolver,
   ViewContainerRef,
   ComponentRef,
-  Injector,
+  Injector
 } from '@angular/core';
 import { ComponentModel } from '../model/componentModel';
 
@@ -43,7 +43,7 @@ export class ComponentService {
   }
 
   private setProps<T>(instance: T, props: { [key: string]: any }) {
-    Object.keys(props).forEach((key) => {
+    Object.keys(props).forEach(key => {
       instance[key] = props[key];
     });
   }

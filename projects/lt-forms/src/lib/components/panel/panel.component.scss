@@ -31,11 +31,11 @@
 }
 
 .slideToTop {
-  animation: slideToTop .3s ease;
+  animation: slideToTop 0.3s ease;
 }
 
 .slideToBottom {
-  animation: slideToBottom .3s ease;
+  animation: slideToBottom 0.3s ease;
 }
 
 @keyframes slideToTop {

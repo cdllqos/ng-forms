@@ -39,7 +39,13 @@
   flex: 1;
 }
 
-@mixin flex-display($display:flex, $direction: row, $wrap:nowrap, $justify-content: flex-start, $align-items: baseline) {
+@mixin flex-display(
+  $display: flex,
+  $direction: row,
+  $wrap: nowrap,
+  $justify-content: flex-start,
+  $align-items: baseline
+) {
   display: $display;
   flex-direction: $direction;
   flex-wrap: $wrap;

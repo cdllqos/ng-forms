@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "npx ng serve",
-    "build": "yarn && npx ng build lt-forms && npx ng build --prod",
+    "build": "yarn && npx ng build --prod",
     "publish": "./publish.sh",
+    "commit": "npx git-cz",
     "test": "npx ng test lt-forms",
     "lint": "npx ng lint",
     "e2e": "npx ng e2e"
@@ -36,6 +37,8 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.5.0",
+    "commitizen": "^3.0.7",
+    "conventional-changelog-cli": "^2.0.12",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.0.0",

@@ -1,6 +1,6 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
-import {ListItemModel} from '../../model/listItem';
+import { ListItemModel } from '../../model/listItem';
 
 @Component({
   selector: 'lt-select-list',

@@ -1,6 +1,6 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
-import {BaseField} from '../baseField';
+import { BaseField } from '../baseField';
 
 @Component({
   selector: 'lt-input',

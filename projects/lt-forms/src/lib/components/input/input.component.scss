@@ -3,7 +3,6 @@
 }
 
 .section {
-
   input {
     display: block;
     width: 100%;
@@ -13,12 +12,11 @@
     padding: var(--form-control-tb-padding) var(--form-control-lr-padding);
     border: 1px solid var(--border-primary);
     border-radius: 1px;
-    transition: all .2s ease-in;
+    transition: all 0.2s ease-in;
 
     &:active,
     &:hover,
-    &:focus,
-      {
+    &:focus {
       border-color: var(--border-active);
     }
   }

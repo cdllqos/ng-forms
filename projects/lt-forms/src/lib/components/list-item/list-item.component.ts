@@ -1,4 +1,14 @@
-import {ChangeDetectionStrategy, Component, ContentChild, EventEmitter, HostListener, Input, OnInit, Output, TemplateRef} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ContentChild,
+  EventEmitter,
+  HostListener,
+  Input,
+  OnInit,
+  Output,
+  TemplateRef
+} from '@angular/core';
 
 @Component({
   selector: 'lt-list-item',
